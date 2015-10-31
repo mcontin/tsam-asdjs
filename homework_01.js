@@ -12,7 +12,7 @@ function ex_1_I(myArray){
 }
 //O(n)
 function ex_1_R(myArray){
-	return (myArray.length<=0 || myArray[0]<0)?0:(myArray[0]+sum(myArray.slice(1)));
+	return (myArray.length<=0 || myArray[0]<0)?0:(myArray[0]+ex_1_R(myArray.slice(1)));
 }
 //O(n)
 
@@ -21,11 +21,11 @@ Esercizio 2
 Dato un numero n, restituire la somma dei primi n numeri interi positivi dispari
 */
 function ex_2_I(n){	
-var sum = 0;	
-	for(var i=1;i<=n;i++){
-		sum += 2*i - 1;
-	}
-return sum;
+	var sum = 0;	
+		for(var i=1;i<=n;i++){
+			sum += 2*i - 1;
+		}
+	return sum;
 }
 //O(n)
 function ex_2_R(n){
@@ -38,12 +38,13 @@ Esercizio 3
 Dato un array di 10 elementi, calcolarne la media
 */
 function ex_3_I(myArray){
-var avg = 0;
-    while (i<myArray.length){
-        avg += myArray[i];
-        i++;
-    }
-return avg/myArray.length;
+	var avg = 0;
+	var i = 0;
+	    while (i<myArray.length){
+	        avg += myArray[i];
+	        i++;
+	    }
+	return avg/myArray.length;
 }
 //O(n)
 function ex_3_R(array){
@@ -91,6 +92,7 @@ operatore somma.
 */
 function ex_5_I(a,b){
 	var tot = 0;
+	var i = 0;
 		while(i<a){
 			tot += b;
 			i++;	
@@ -99,7 +101,7 @@ function ex_5_I(a,b){
 }
 //O(n)
 function ex_5_R(a,b){
-	return (b>0)?a+mult(a,--b):0;
+	return (b>0)?a+ex_5_R(a,--b):0;
 }
 //O(n)
 
@@ -109,17 +111,121 @@ Si calcoli la divisione e il resto della divisione tra due numeri a, b maggiori 
 l’utilizzo dei soli operatori somma e sottrazione.
 */
 function ex_6_I(a,b){
+	var i = 0;
     while(a-b>=0){
         a -= b;
         i++;
     }
-return i+" resto: "+a;
+	return "quoziente: "+i+" resto: "+a;
 }
 //O(n)
 function ex_6_R(a,b){
-    return div(a,b,0);
+    return divR(a,b,0);
 }
-function div(a,b,q){
-    return (a-b>=0)?div(a-b,b,++q):"quoziente: "+q+" resto: "+a;
+function divR(a,b,q){
+    return (a-b>=0)?divR(a-b,b,++q):"quoziente: "+q+" resto: "+a;
 }
 //O(n)
+
+/*
+Esercizio 7
+Si calcoli la potenza (x^y) di due numeri x y maggiori o uguali a zero, tramite l’utilizzo dei soli
+operatori somma, sottrazione e della funzione mult.
+*/
+function ex_7_I(a,b){
+	var tot = a;
+	for(var i=0; i<b-1; i++)
+		tot = ex_5_I(tot,a);
+	return tot;
+}
+//O(n^2)
+function ex_7_R(a,b){
+    return (b==0)?1:ex_5_R(a,ex_7_R(a,b-1));
+}
+//O(n^2)
+
+/*
+Esercizio 8
+Dato un array contenente n^2 elementi, scrivere un algoritmo che permetta di inserire tutti gli
+oggetti in un array bidimensionale n x n.
+*/
+function ex_8_I(aa){
+    n = Math.sqrt(aa.length);
+    var ab = new Array(n);
+    for(var i=0;i<n;i++)        //inizializzazione matrice
+        ab[i] = new Array(n);
+    for(var i=0;i<n;i++){
+        for(var j=0;j<n;j++){
+            ab[i][j] = aa[n*i+j];
+        }
+    }
+    return ab;
+}
+//O(n^2)
+function ex_8_R(aa){
+	console.log("Non ci sono riuscito :(");
+}
+
+/*
+Esercizio 9
+Dato una lista di elementi, scrivere un algoritmo che permetta di invertire l’ordine degli
+elementi.
+*/
+function ex_9_I(a){
+    for(var i=0;i<a.length/2;i++){
+        t = a[i];
+        a[i] = a[a.length-1-i];
+        a[a.length-1-i] = t;
+    }
+    return a;
+}
+//O(n)
+function ex_9_R(aa){
+    return (aa.length==1)?aa[0]:new Array(0).concat(aa.pop(),ex_9_R(aa));
+}
+//O(n)
+/*
+Esercizio 10
+Dati due interi a, n maggiori di 0, scrivere un algoritmo che crea un lista di n elementi
+contenenti a.
+*/
+function ex_10_I(a,n){
+	var array = [];
+	var i = 0;
+	while(i<n){
+    	array.push(a);
+    i++;
+	}
+	return array;
+}
+//O(n)
+function ex_10_R(a,n){
+    return (n==1)?a:new Array(0).concat(a,ex_10_R(a,--n));
+}
+//O(n)
+/*
+Esercizio 11
+Data una lista di interi A, si riordini gli elementi della lista in modo tale che tutti gli elementi
+dispari precedano nello stesso ordine tutti gli elementi pari.
+*/
+function ex_11_I(a){
+	var res = [];
+	var i = 0;
+	var j = 0;
+	while(j<a.length){
+	    if(a[j]%2!=0)
+	        res.push(a[j]);
+	    j++;
+	}    
+	j = 0;
+	while(j<a.length){
+	    if(a[j]%2==0)
+	        res.push(a[j])
+	    j++
+	}      
+	return res;
+}
+//O(n)
+function ex_11_R(aa){
+	console.log("Non ci sono riuscito :(");
+}

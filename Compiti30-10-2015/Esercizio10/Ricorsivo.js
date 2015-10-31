@@ -1,12 +1,5 @@
-function replicate(a,n,i,finalA){
-    if(i==n){
-        return finalA;
-    }
-    else {
-        finalA.push(a);
-        return replicate(a,n,++i,finalA);
-    }
+function ex_10_R(a,n){
+    return (n==1)?a:new Array(0).concat(a,ex_10_R(a,--n));
 }
-var array = replicate(3,10,0,new Array(0))
-console.log("Ricorsivo: "+array);
+console.log("Ricorsivo: "+ex_10_R(12,2));
 //O(n)

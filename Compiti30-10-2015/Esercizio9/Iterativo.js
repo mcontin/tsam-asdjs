@@ -3,11 +3,13 @@ var t = 0;
 var i = 0;
 var n = a.length/2;
 console.log("Iterativo: prima: "+a);
-while(i<n){
-    t = a[i];
-    a[i] = a[a.length-1-i];
-    a[a.length-1-i] = t;
-    i++;
+function ex_9_I(a){
+    for(var i=n-1;i>=0;i--){
+        t = a[i];
+        a[i] = a[a.length-1-i];
+        a[a.length-1-i] = t;
+    }
+    return a;
 }
-console.log("Iterativo: dopo: "+a);
+console.log("Iterativo: dopo: "+ex_9_I(a));
 //O(n)

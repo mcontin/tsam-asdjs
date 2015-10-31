@@ -1,19 +1,17 @@
-var a = 5;
-var b = 4;
-var i = 0;
-var j = 0;
-var tot = 0;
-var temp = a;
-while(j<b-1){
-	while(i<a){
-		tot += temp;
-		i++;
-	}
-temp = tot;
-tot = 0;
-j++;
-i = 0;
+function ex_7_I(a,b){
+	var tot = a;
+	for(var i=0; i<b-1; i++)
+		tot = ex_5_I(tot,a);
+	return tot;
 }
-tot = temp;
-console.log("Iterativo: "+tot);
+function ex_5_I(a,b){
+	var tot = 0;
+	var i = 0;
+		while(i<a){
+			tot += b;
+			i++;	
+		}
+	return tot;
+}
+console.log("Iterativo: "+ex_7_I(9,7));
 //O(n^2)
