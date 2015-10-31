@@ -5,5 +5,10 @@ function sumInterval(a, b, tot){
         return (a==b)?tot+a:sumInterval(a+1,b,tot+a);
     }
 }
-console.log("Ricorsivo: "+sumInterval(7,4,0));
+function ex_4_R(a,b){
+    if(a>b)
+        return ex_4_R(b,a);
+    return (a==b)?a:a+ex_4_R(a+1,b);
+}
+console.log("Ricorsivo: "+ex_4_R(9,8));
 //O(n)

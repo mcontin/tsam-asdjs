@@ -1,11 +1,9 @@
 var r = 0;
 function div(a,b,q){
-    if(a-b>=0){
-        return div(a-b,b,++q);
-    }
-    else{
-        return "quoziente: "+q+" resto: "+a;
-    }
+    return (a-b>=0)?div(a-b,b,++q):"quoziente: "+q+" resto: "+a;
 }
-console.log("Ricorsivo: "+div(11,4,0));
+function ex_6_R(a,b){
+    return div(a,b,0);
+}
+console.log("Ricorsivo: "+ex_6_R(11,4));
 //O(n)
