@@ -150,11 +150,10 @@ Dato un array contenente n^2 elementi, scrivere un algoritmo che permetta di ins
 oggetti in un array bidimensionale n x n.
 */
 function ex_8_I(aa){
-    n = Math.sqrt(aa.length);
-    var ab = new Array(n);
-    for(var i=0;i<n;i++)        //inizializzazione matrice
-        ab[i] = new Array(n);
+    var n = Math.sqrt(aa.length);
+    var ab = [];
     for(var i=0;i<n;i++){
+        ab[i] = [];
         for(var j=0;j<n;j++){
             ab[i][j] = aa[n*i+j];
         }
@@ -163,9 +162,20 @@ function ex_8_I(aa){
 }
 //O(n^2)
 function ex_8_R(aa){
-	console.log("Non ci sono riuscito :(");
+	var n = Math.sqrt(aa.length); 
+    var ab = new Array(n);
+    for(var i=0;i<n;i++){
+        ab[i]=new Array(n);
+    }
+    return swapMx(aa,ab,n,0);
 }
-
+function swapMx(aa,aRes,n,i){
+    if(i==aa.length)
+        return aRes;
+    aRes[Math.floor(i/n)][i%n]=aa[i];
+    return swapMx(aa,aRes,n,++i);
+}
+//O(n^2)
 /*
 Esercizio 9
 Dato una lista di elementi, scrivere un algoritmo che permetta di invertire l’ordine degli
@@ -226,6 +236,24 @@ function ex_11_I(a){
 	return res;
 }
 //O(n)
-function ex_11_R(aa){
-	console.log("Non ci sono riuscito :(");
+function ex_11_R(a){
+    var nOdds = 0;
+    for(var i=0;i<a.length;i++){
+        if(a[i]%2!=0)
+            nOdds++;
+    }
+    return orderOdds(a,nOdds,new Array(a.length),0);
 }
+function orderOdds(a,freePosForEven,b,i){
+    if(a.length==0)
+        return b;
+    if(a[0]%2!=0){
+        b[i]=a.shift();
+        return orderOdds(a,freePosForEven,b,++i);    
+    }  
+    else{
+        b[freePosForEven]=a.shift();
+        return orderOdds(a,freePosForEven+1,b,i);
+    }
+}
+//O(n)
