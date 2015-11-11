@@ -48,10 +48,11 @@ function ex_3_I(myArray){
 }
 //O(n)
 function ex_3_R(array){
-    return avgR(array,0);
+    return avgR(array,0)/array.length;
 }
 function avgR(array,i){
-    return (i<array.length)?array[i]/array.length+avgR(array,++i):0;
+    return (i<array.length)?array[i]+avgR(array,++i):0;
+	
 }
 //O(n)
 
@@ -116,14 +117,14 @@ function ex_6_I(a,b){
         a -= b;
         i++;
     }
-	return "quoziente: "+i+" resto: "+a;
+	return [i,a];
 }
 //O(n)
 function ex_6_R(a,b){
     return divR(a,b,0);
 }
 function divR(a,b,q){
-    return (a-b>=0)?divR(a-b,b,++q):"quoziente: "+q+" resto: "+a;
+    return (a-b>=0)?divR(a-b,b,++q):[q,a];
 }
 //O(n)
 
