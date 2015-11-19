@@ -141,12 +141,12 @@ Data una lista di interi A, si riordini gli elementi della lista in modo tale ch
 dispari precedano nello stesso ordine tutti gli elementi pari.
 */
 function ex_11_F(a){
-	var res = [];
 	var odds = [];
 	var evens = [];
 	a.every(x => {
-		(x%2==0)?evens.push(x):odds.push(x)
+		(x%2==0)?evens.push(x):odds.push(x);
 		return true;
 	});
-	return res.concat(odds,evens);
+	console.log(odds);
+	return odds.concat(evens);
 }
