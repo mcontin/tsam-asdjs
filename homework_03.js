@@ -3,8 +3,8 @@ Esercizio 1
 Dato un array di interi, restituire la loro somma fino a che non viene ritrovato un valore
 negativo
 */
-Array.prototype.sumUntilNeg = funcOne;
-function funcOne(){
+Array.prototype.ex_1 = sumUntilNeg;
+function sumUntilNeg(){
 	var sum = 0;
 	this.every(x => {
 		if(x>0)
@@ -13,25 +13,21 @@ function funcOne(){
 	});
 	return sum;
 }
-//per TC
-function ex_1_P(array){
-	return array.sumUntilNeg();
-}
 
 /*
 Esercizio 3
 Dato un array di 10 elementi, calcolarne la media
 */
-Array.prototype.avg = funcTwo;
-function funcTwo(){
+Array.prototype.ex_3 = average;
+function average(){
 	var avg = 0;
 		this.every(x => avg += x);
 	return avg/this.length;
 }
 //per TC
-function ex_2_P(array){
-	return array.avg();
-}
+//function ex_2_P(array){
+//	return array.avg();
+//}
 
 /*
 Esercizio 8
@@ -78,8 +74,8 @@ Esercizio 11
 Data una lista di interi A, si riordini gli elementi della lista in modo tale che tutti gli elementi
 dispari precedano nello stesso ordine tutti gli elementi pari.
 */
-Array.prototype.oddsFirst = funcFive;
-function funcFive(){
+Array.prototype.ex_11 = oddsFirst;
+function oddsFirst(){
 	var odds = [];
 	var evens = [];
 	this.every(x => {
@@ -88,6 +84,6 @@ function funcFive(){
 	});
 	return odds.concat(evens);
 }
-function ex_5_P(array){
-	return array.oddsFirst();
-}
+//function ex_5_P(array){
+//	return array.oddsFirst();
+//}

@@ -1,4 +1,4 @@
-function ex_1_F(n){
+function dec2bin(n){
     var quoz = 0;
     var resto = 0;
     var temp = n;
@@ -14,4 +14,7 @@ function ex_1_F(n){
         res+=binary.pop();
     }
     return res;
+}
+function ex_1_F(n){
+    return dec2bin(n);
 }
