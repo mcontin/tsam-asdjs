@@ -5,10 +5,9 @@ function dec2bin(n){
     var binary = [];
     do{
         resto = temp%2;
-        temp /= 2;
-        quoz = Math.floor(temp);
+        temp = Math.floor(temp/2);
         binary.push(resto);     
-    }while(quoz!=0);
+    }while(temp!=0);
     var res = "";
     while(binary.length>0){
         res+=binary.pop();
