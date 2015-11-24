@@ -5,14 +5,14 @@ function CircularQueue(n){
     this.lastDelete = 0;
 }
 
-CircularQueue.prototype.push = function(el){
+CircularQueue.prototype.enqueue = function(el){
     if(this.lastInsert + 1 == this.array.length){
         this.lastInsert = 0;
     }
     else this.lastInsert++;
     this.array[this.lastInsert] = el;
 }
-CircularQueue.prototype.pop = function(){
+CircularQueue.prototype.dequeue = function(){
     if(this.lastDelete + 1 == this.array.length){
         this.lastDelete = 0;
     }
@@ -33,5 +33,3 @@ CircularQueue.prototype.front = function(){
 CircularQueue.prototype.size = function(){
 	return this.array.length;
 }
-CircularQueue.prototype.enqueue = CircularQueue.prototype.push;
-CircularQueue.prototype.dequeue = CircularQueue.prototype.pop;
