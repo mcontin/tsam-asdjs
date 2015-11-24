@@ -33,7 +33,7 @@ function average(){
 Esercizio 8
 Dato un array contenente n^2 elementi, scrivere un algoritmo che permetta di inserire tutti gli
 oggetti in un array bidimensionale n x n.
-*/
+
 Array.prototype.toBidimensional = funcThree;
 function funcThree(){
     var n = Math.sqrt(this.length);
@@ -60,7 +60,7 @@ Esercizio 9
 Dato una lista di elementi, scrivere un algoritmo che permetta di invertire l’ordine degli
 elementi.
 */
-Array.prototype.invert = funcFour;
+/*Array.prototype.invert = funcFour;
 function funcFour(){
     var b = [];
     this.every(x => b.unshift(x));
