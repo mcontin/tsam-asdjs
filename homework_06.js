@@ -22,13 +22,13 @@ CircularQueue.prototype.pop = function(){
     return temp;
 }
 CircularQueue.prototype.peek = function(){
-    return this.array[lastDelete];
+    return this.array[this.lastDelete];
 }
 CircularQueue.prototype.isEmpty = function(){
     return this.array.length == 0;   
 }
 CircularQueue.prototype.front = function(){
-	return this.array[lastInsert];
+	return this.array[this.lastInsert];
 }
 CircularQueue.prototype.size = function(){
 	return this.array.length;
