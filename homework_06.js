@@ -1,6 +1,5 @@
 function CircularQueue(n){
     this.array = new Array(n);
-    this.length = this.array.length;
     this.lastInsert = 0;
     this.lastDelete = 0;
 }
