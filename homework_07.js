@@ -12,17 +12,20 @@ function PriorityQueueC(callback){
 	this.checkPriority = callback;
 }
 
-function check(arrayPriority,elementPriority){
-	if(elementPriority>=arrayPriority)
-		return true;
-	else return false;
+function check(arr,el){
+	if(arr<el){ 
+		return 1;
+	}else if(el==arr){
+		return 0;
+	}else return -1;
 }
+
     //splice(pos, elToRemove, elToInsert)
 PriorityQueueC.prototype.enqueue = function(el){
 	var inserted = false;
 	if(this.size()>0){
 		for(var i=0;i<=this.size() && !inserted;i++){
-			if(i==this.size() || this.checkPriority(this.array[i].priority,el.priority)){
+			if(i==this.size() || this.checkPriority(this.array[i].priority,el.priority)>=0){
 				this.array.splice(i, 0, el);
 				inserted = true;
 			}/*
@@ -97,7 +100,7 @@ PriorityQueue.prototype.size = function(){
 	return this.array.length;
 }
 
-/*
+ 
 function testC(){
 	var q = new PriorityQueueC(check);
 	var o = new QueueItem("a",5);
@@ -113,6 +116,7 @@ function testC(){
 	q.size;
 	return q;
 }
+/*
 function test(){
 	var q = new PriorityQueue();
 	var o = new QueueItem("a",5);
@@ -128,3 +132,4 @@ function test(){
 	q.size;
 	return q;
 }
+*/
