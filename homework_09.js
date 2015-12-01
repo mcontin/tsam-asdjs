@@ -93,6 +93,9 @@ LinkedList.prototype.add = function(index,e){
     else{
         tempEl = this.head;
         while(tempEl.next!=null && tempEl.index<index){         //raggiungimento nodo corretto
+            if(tempEl.next.index == index){
+            	return false;
+            }
             tempEl = tempEl.next;
         }
         if(tempEl.next==null && index>tempEl.index){            //inserimento in coda
@@ -109,6 +112,7 @@ LinkedList.prototype.add = function(index,e){
             tempEl.prev = node;
         }
     }
+    return true;
 }
 LinkedList.prototype.get = function(index){
     var tempEl = this.head;
