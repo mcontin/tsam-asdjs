@@ -114,7 +114,7 @@ LinkedList.prototype.get = function(index){
     var tempEl = this.head;
     while(tempEl!=null){
         if(tempEl.index == index){
-            return tempEl;
+            return tempEl.item;
         }
         tempEl = tempEl.next;
     }
